@@ -1,13 +1,13 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { NotFoundException } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
-import { GetNewsByIdQuery } from './get-news-by-id.query';
-import { GetNewsByIdResponse } from './get-news-by-id.response';
+import { GetNewsOneQuery } from './get-news-one.query';
+import { GetNewsOneResponse } from './get-news-one.response';
 import { NewsEntity } from '../../news.entity';
 
-@QueryHandler(GetNewsByIdQuery)
-export class GetNewsByIdHandler implements IQueryHandler<GetNewsByIdQuery> {
-    async execute(query: GetNewsByIdQuery): Promise<GetNewsByIdResponse> {
+@QueryHandler(GetNewsOneQuery)
+export class GetNewsOneHandler implements IQueryHandler<GetNewsOneQuery> {
+    async execute(query: GetNewsOneQuery): Promise<GetNewsOneResponse> {
         const news = await NewsEntity.findOne({
             where: { id: query.id },
             relations: ['newsCategory', 'country'],
@@ -17,6 +17,6 @@ export class GetNewsByIdHandler implements IQueryHandler<GetNewsByIdQuery> {
             throw new NotFoundException('Berilgan id boyicha yangilik topilmadi');
         }
 
-        return plainToInstance(GetNewsByIdResponse, news, { excludeExtraneousValues: true });
+        return plainToInstance(GetNewsOneResponse, news, { excludeExtraneousValues: true });
     }
 }

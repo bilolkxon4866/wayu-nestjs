@@ -4,7 +4,7 @@ import {
     Delete,
     Get,
     Param,
-    ParseIntPipe,
+    ParseIntPipe, Patch,
     Put,
     Query,
 } from '@nestjs/common';
@@ -41,7 +41,7 @@ export class QuestionsController {
         return this.queryBus.execute(new GetQuestionByIdQuery(id));
     }
 
-    @Put(':id/status')
+    @Patch(':id/status')
     @ApiNoContentResponse()
     async updateQuestionStatus(
         @Param('id', ParseIntPipe) id: number,

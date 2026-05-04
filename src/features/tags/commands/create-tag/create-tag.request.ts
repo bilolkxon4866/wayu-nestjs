@@ -6,7 +6,7 @@ export class CreateTagRequest {
     @IsString()
     @MinLength(2)
     @MaxLength(64)
-    @ApiProperty({ example: 'Siyosat' })
+    @ApiProperty()
     title!: string;
 
     public toCommand(): CreateTagCommand {

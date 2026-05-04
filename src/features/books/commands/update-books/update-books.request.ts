@@ -6,7 +6,6 @@ import { UpdateBooksCommand } from './update-books.command';
 export class UpdateBooksRequest {
     @IsString()
     @IsOptional()
-    @MinLength(3)
     @MaxLength(256)
     @ApiProperty({ required: false })
     title?: string;
@@ -34,7 +33,7 @@ export class UpdateBooksRequest {
     @Min(1)
     @Max(10000)
     @Type(() => Number)
-    @ApiProperty({ required: false, example: 150 })
+    @ApiProperty({ required: false })
     pages?: number;
 
     @IsInt()
@@ -42,19 +41,19 @@ export class UpdateBooksRequest {
     @Min(1000)
     @Max(2100)
     @Type(() => Number)
-    @ApiProperty({ required: false, example: 2024 })
+    @ApiProperty({ required: false })
     year?: number;
 
     @IsInt()
     @IsOptional()
     @Type(() => Number)
-    @ApiProperty({ required: false, example: 1 })
+    @ApiProperty({ required: false })
     authorId?: number;
 
     @IsInt()
     @IsOptional()
     @Type(() => Number)
-    @ApiProperty({ required: false, example: 1 })
+    @ApiProperty({ required: false })
     bookCategoryId?: number;
 
     public toCommand(id: number): UpdateBooksCommand {

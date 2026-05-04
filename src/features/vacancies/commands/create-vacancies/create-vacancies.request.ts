@@ -7,36 +7,36 @@ import { CreateVacanciesCommand } from './create-vacancies.command';
 export class CreateVacanciesRequest {
     @IsString()
     @MinLength(3)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     title!: string;
 
     @IsString()
     @MaxLength(128)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     address!: string;
 
     @IsString()
     @MinLength(10)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     description!: string;
 
     @IsString()
     @MaxLength(16)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     phoneNumber!: string;
 
     @IsEnum(VacancyType)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     type!: VacancyType;
 
     @IsString()
     @MaxLength(64)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     salary!: string;
 
     @IsBoolean()
     @Type(() => Boolean)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     isActive!: boolean;
 
 

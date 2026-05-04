@@ -5,16 +5,14 @@ import { Type } from 'class-transformer';
 export class GetAllUsefulLinkFilters {
     @IsInt()
     @IsOptional()
-    @Min(1)
     @Type(() => Number)
-    @ApiProperty({ required: false, example: 1 })
+    @ApiProperty({ required: false,  })
     page?: number;
 
     @IsInt()
     @IsOptional()
-    @Min(1)
     @Max(100)
     @Type(() => Number)
-    @ApiProperty({ required: false, example: 10 })
+    @ApiProperty({ required: false,  })
     size?: number;
 }

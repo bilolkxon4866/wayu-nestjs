@@ -1,7 +1,7 @@
 import { Expose } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class GetNewsByIdResponse {
+export class GetNewsOneResponse {
     @Expose()
     @ApiProperty()
     id!: number;

@@ -5,7 +5,7 @@ import { CreateAuthorCommand } from './create-author.command';
 export class CreateAuthorRequest {
     @IsString()
     @MinLength(3)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     fullName!: string;
 
 

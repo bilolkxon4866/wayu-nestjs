@@ -6,12 +6,12 @@ import { CreateFaqsTagCommand } from './create-faqs-tag.command';
 export class CreateFaqsTagRequest {
     @IsInt()
     @Type(() => Number)
-    @ApiProperty({ example: 1 })
+    @ApiProperty()
     faqsId!: number;
 
     @IsInt()
     @Type(() => Number)
-    @ApiProperty({ example: 2 })
+    @ApiProperty()
     tagId!: number;
 
     public toCommand(): CreateFaqsTagCommand {

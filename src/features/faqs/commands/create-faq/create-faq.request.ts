@@ -7,13 +7,13 @@ export class CreateFaqRequest {
     @IsString()
     @MinLength(5)
     @MaxLength(256)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     question!: string;
 
     @IsString()
     @MinLength(5)
     @MaxLength(512)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     answer!: string;
 
     @IsArray()

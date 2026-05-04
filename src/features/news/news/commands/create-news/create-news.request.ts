@@ -1,4 +1,4 @@
-import { IsDateString, IsInt, IsOptional, IsString, IsUrl, MaxLength, MinLength } from 'class-validator';
+import {Allow, IsDateString, IsInt, IsOptional, IsString, IsUrl, MaxLength, MinLength} from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { CreateNewsCommand } from './create-news.command';
@@ -7,32 +7,31 @@ export class CreateNewsRequest {
     @IsString()
     @MinLength(3)
     @MaxLength(256)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     title!: string;
 
-    @IsUrl()
-    @MaxLength(128)
-    @ApiProperty({ required: false })
+    @Allow()
+    @ApiProperty({ type: "string", format: "binary" })
     image!: string;
 
     @IsDateString()
-    @ApiProperty({ required: false })
+    @ApiProperty()
     date!: string;
 
     @IsString()
     @MinLength(10)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     content!: string;
 
     @IsInt()
     @Type(() => Number)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     categoryId!: number;
 
     @IsInt()
     @IsOptional()
     @Type(() => Number)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     countryId?: number;
 
     public toCommand(): CreateNewsCommand {

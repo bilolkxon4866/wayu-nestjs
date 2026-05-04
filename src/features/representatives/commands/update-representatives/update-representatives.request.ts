@@ -7,31 +7,31 @@ export class UpdateRepresentativesRequest {
     @IsString()
     @MinLength(3)
     @ApiProperty({ required: true })
-    fullname?: string | undefined;
+    fullname?: string
 
     @IsOptional()
     @IsUrl()
     @MaxLength(128)
-    @ApiProperty({ required: true })
-    image?: string | undefined;
+    @ApiProperty({ required: false })
+    image?: string
 
     @IsOptional()
     @IsEmail()
     @MaxLength(64)
-    @ApiProperty({ required: true })
-    email?: string | undefined;
+    @ApiProperty({ required: false })
+    email?: string
 
     @IsOptional()
     @IsString()
     @MaxLength(16)
-    @ApiProperty({ required: true })
-    phoneNumber?: string | undefined;
+    @ApiProperty({ required: false })
+    phoneNumber?: string
 
     @IsOptional()
     @IsString()
     @MinLength(10)
-    @ApiProperty({ required: true })
-    resume?: string | undefined;
+    @ApiProperty({ required: false })
+    resume?: string
 
 
     public toCommand(id: number): UpdateRepresentativesCommand {

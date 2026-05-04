@@ -6,7 +6,7 @@ export class CreateEventCategoryRequest {
     @IsString()
     @MinLength(2)
     @MaxLength(64)
-    @ApiProperty({ example: 'Konferensiya' })
+    @ApiProperty()
     title!: string;
 
     public toCommand(): CreateEventCategoryCommand {

@@ -12,6 +12,6 @@ export class GetAllApplicationsHandler implements IQueryHandler<GetAllApplicatio
         const skip = (currentPage - 1) * take;
 
         const items = await ApplicationsEntity.find({ skip, take });
-        return items.map(item => plainToInstance(GetAllApplicationsResponse, item, { excludeExtraneousValues: true }));
+        return plainToInstance(GetAllApplicationsResponse, items, { excludeExtraneousValues: true })
     }
 }

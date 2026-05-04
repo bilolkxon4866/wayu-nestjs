@@ -6,7 +6,7 @@ export class UpdateNewsCategoryRequest {
     @IsString()
     @MinLength(2)
     @MaxLength(64)
-    @ApiProperty({ example: 'Iqtisodiyot' })
+    @ApiProperty()
     title!: string;
 
     public toCommand(id: number): UpdateNewsCategoryCommand {

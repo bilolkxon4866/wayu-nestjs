@@ -9,7 +9,7 @@ export default async function globalSetup() {
 
     await db.initialize();
 
-    const dbName = 'uzchess_test';
+    const dbName = 'wayu_test';
 
     await db.query(`DROP DATABASE IF EXISTS "${dbName}"`);
 

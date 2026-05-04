@@ -7,31 +7,31 @@ import { CreateApplicationsCommand } from './create-applications.command';
 export class CreateApplicationsRequest {
     @IsString()
     @MinLength(3)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     fullName!: string;
 
     @IsString()
     @MaxLength(16)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     phoneNumber!: string;
 
     @IsEmail()
     @MaxLength(64)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     email!: string;
 
     @IsInt()
     @Type(() => Number)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     vacancyId!: number;
 
     @IsString()
     @MaxLength(128)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     resume!: string;
 
     @IsEnum(ApplicationStatus)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     status!: ApplicationStatus;
 
 

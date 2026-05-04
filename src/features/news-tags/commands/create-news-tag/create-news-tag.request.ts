@@ -6,12 +6,12 @@ import { CreateNewsTagCommand } from './create-news-tag.command';
 export class CreateNewsTagRequest {
     @IsInt()
     @Type(() => Number)
-    @ApiProperty({ example: 1 })
+    @ApiProperty()
     newsId!: number;
 
     @IsInt()
     @Type(() => Number)
-    @ApiProperty({ example: 2 })
+    @ApiProperty()
     tagId!: number;
 
     public toCommand(): CreateNewsTagCommand {

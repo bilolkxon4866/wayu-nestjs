@@ -6,7 +6,7 @@ export class CreateLanguageRequest {
     @IsString()
     @MinLength(2)
     @MaxLength(64)
-    @ApiProperty({ example: "O'zbek" })
+    @ApiProperty()
     title!: string;
 
     public toCommand(): CreateLanguageCommand {

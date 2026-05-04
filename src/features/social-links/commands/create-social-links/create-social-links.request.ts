@@ -5,17 +5,17 @@ import { CreateSocialLinksCommand } from './create-social-links.command';
 export class CreateSocialLinksRequest {
     @IsString()
     @MinLength(1)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     title!: string;
 
     @IsString()
     @MaxLength(128)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     icon!: string;
 
     @IsUrl()
     @MaxLength(128)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     link!: string;
 
 

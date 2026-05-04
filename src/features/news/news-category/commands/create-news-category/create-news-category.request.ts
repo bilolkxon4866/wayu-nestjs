@@ -6,7 +6,7 @@ export class CreateNewsCategoryRequest {
     @IsString()
     @MinLength(2)
     @MaxLength(64)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     title!: string;
 
     public toCommand(): CreateNewsCategoryCommand {

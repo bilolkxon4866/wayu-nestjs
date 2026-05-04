@@ -1,16 +1,15 @@
-import {IsString, IsUrl, Length, MaxLength} from "class-validator";
+import {Allow, IsString, IsUrl, Length, MaxLength} from "class-validator";
 import {ApiProperty} from "@nestjs/swagger";
 import {CreateCountriesCommand} from "./create-countries.command";
 
 export class CreateCountriesRequest{
     @IsString()
     @Length(6, 64)
-    @ApiProperty({required: false})
+    @ApiProperty()
     title!: string
 
-    @IsUrl()
-    @MaxLength(64)
-    @ApiProperty({required: false})
+    @Allow()
+    @ApiProperty({type: "string", format: "binary"})
     flag!: string
 
 

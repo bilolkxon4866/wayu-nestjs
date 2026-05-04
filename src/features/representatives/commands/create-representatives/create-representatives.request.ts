@@ -1,31 +1,29 @@
-import { IsEmail, IsString, IsUrl, MaxLength, MinLength } from 'class-validator';
+import {Allow, IsEmail, IsString, IsUrl, MaxLength, MinLength} from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { CreateRepresentativesCommand } from './create-representatives.command';
 
 export class CreateRepresentativesRequest {
     @IsString()
     @MinLength(3)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     fullname!: string;
 
-    @IsUrl()
-    @MaxLength(128)
-    @ApiProperty({ required: false })
+    @Allow()
+    @ApiProperty({ type: "string", format: "binary" })
     image!: string;
 
     @IsEmail()
     @MaxLength(64)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     email!: string;
 
     @IsString()
     @MaxLength(16)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     phoneNumber!: string;
 
-    @IsString()
-    @MinLength(10)
-    @ApiProperty({ required: false })
+    @Allow()
+    @ApiProperty({ type: "string", format: "binary" })
     resume!: string;
 
 

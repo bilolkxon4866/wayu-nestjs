@@ -7,26 +7,25 @@ export class CreateBranchRequest {
     @IsString()
     @MinLength(2)
     @MaxLength(64)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     city!: string;
 
     @IsNumberString()
-    @ApiProperty({ required: false })
+    @ApiProperty()
     latitude!: number;
 
     @IsNumberString()
-    @ApiProperty({ required: false })
+    @ApiProperty()
     longitude!: number;
 
     @IsString()
-    @MinLength(7)
     @MaxLength(16)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     phoneNumber!: string;
 
     @IsInt()
     @Type(() => Number)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     countryId!: number;
 
     @IsInt()

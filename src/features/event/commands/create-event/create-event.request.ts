@@ -1,4 +1,4 @@
-import { IsDateString, IsInt, IsString, IsUrl, MaxLength, MinLength } from 'class-validator';
+import {Allow, IsDateString, IsInt, IsString, IsUrl, MaxLength, MinLength} from 'class-validator';
 import { Type } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
 import { CreateEventCommand } from './create-event.command';
@@ -6,31 +6,30 @@ import { CreateEventCommand } from './create-event.command';
 export class CreateEventRequest {
     @IsString()
     @MinLength(3)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     title!: string;
 
     @IsString()
     @MinLength(10)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     content!: string;
 
-    @IsUrl()
-    @MaxLength(128)
-    @ApiProperty({ required: false })
+    @Allow()
+    @ApiProperty({ type: "string", format: "binary" })
     image!: string;
 
     @IsDateString()
-    @ApiProperty({ required: false })
+    @ApiProperty()
     date!: string;
 
     @IsString()
     @MaxLength(128)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     address!: string;
 
     @IsInt()
     @Type(() => Number)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     categoryId!: number;
 
 

@@ -25,9 +25,11 @@
 // import { GetOneApplicationsResponse } from './queries/get-one-applications/get-one-applications.response';
 // import {storageOptions} from "../../configs/multer.config";
 //
+import {Controller} from "@nestjs/common";
+
 // @ApiTags('Applications')
-// @Controller('admin/applications')
-// export class ApplicationsController {
+@Controller('admin/applications')
+export class ApplicationsController {
 //     constructor(
 //         private readonly commandBus: CommandBus,
 //         private readonly queryBus: QueryBus,
@@ -73,4 +75,4 @@
 //         cmd.id = id;
 //         return this.commandBus.execute(cmd);
 //     }
-// }
+}

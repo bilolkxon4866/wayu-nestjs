@@ -1,4 +1,4 @@
-﻿import { IsInt, IsOptional, IsString, IsUrl, Length, Max, MaxLength, Min, MinLength } from 'class-validator';
+﻿import {Allow, IsInt, IsOptional, IsString, IsUrl, Length, Max, MaxLength, Min, MinLength} from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { CreateBooksCommand } from './create-books.command';
@@ -7,12 +7,11 @@ export class CreateBooksRequest {
     @IsString()
     @MinLength(3)
     @MaxLength(256)
-    @ApiProperty({ required: false })
+    @ApiProperty()
     title!: string;
 
-    @IsUrl()
-    @MaxLength(128)
-    @ApiProperty({ required: false })
+    @Allow()
+    @ApiProperty({type: "string", format: "binary"})
     image!: string;
 
     @IsString()
@@ -23,18 +22,17 @@ export class CreateBooksRequest {
 
     @IsUrl()
     @MaxLength(256)
-    @ApiProperty({required: false })
+    @ApiProperty()
     file!: string;
 
     @IsInt()
     @Min(1)
     @Max(10000)
     @Type(() => Number)
-    @ApiProperty({required: false})
+    @ApiProperty()
     pages!: number;
 
     @IsInt()
-    @Min(1000)
     @Max(2100)
     @Type(() => Number)
     @ApiProperty()
@@ -42,7 +40,7 @@ export class CreateBooksRequest {
 
     @IsInt()
     @Type(() => Number)
-    @ApiProperty({ required: false})
+    @ApiProperty()
     authorId!: number;
 
     @IsInt()

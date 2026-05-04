@@ -10,7 +10,7 @@ import { CreateNewsHandler } from './news/commands/create-news/create-news.handl
 import { UpdateNewsHandler } from './news/commands/update-news/update-news.handler';
 import { DeleteNewsHandler } from './news/commands/delete-news/delete-news.handler';
 import { GetAllNewsHandler } from './news/queries/get-all-news/get-all-news.handler';
-import { GetNewsByIdHandler } from './news/queries/get-one-news/get-news-by-id.handler';
+import { GetNewsOneHandler } from './news/queries/get-one-news/get-news-one.handler';
 import {GetOneNewsCategoryHandler} from "./news-category/queries/get-one-news-categories/get-one-newsCategory.handler";
 
 @Module({
@@ -30,7 +30,7 @@ import {GetOneNewsCategoryHandler} from "./news-category/queries/get-one-news-ca
         UpdateNewsHandler,
         DeleteNewsHandler,
         GetAllNewsHandler,
-        GetNewsByIdHandler,
+        GetNewsOneHandler,
     ],
 })
 export class NewsModule {}
