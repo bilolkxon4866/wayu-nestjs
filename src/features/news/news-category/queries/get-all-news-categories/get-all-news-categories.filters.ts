@@ -1,14 +1,20 @@
-import {IsInt, IsOptional} from "class-validator";
-import {ApiProperty} from "@nestjs/swagger";
+import { IsInt, IsOptional, Max, Min } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 
-export class GetAllNewsCategoriesFilters{
+export class GetAllNewsCategoriesFilters {
     @IsInt()
     @IsOptional()
-    @ApiProperty({required: false})
-    page?: number
+    @Min(1)
+    @Type(() => Number)
+    @ApiProperty({ required: false, example: 1 })
+    page?: number;
 
     @IsInt()
     @IsOptional()
-    @ApiProperty({required: false})
-    size?: number
+    @Min(1)
+    @Max(100)
+    @Type(() => Number)
+    @ApiProperty({ required: false, example: 10 })
+    size?: number;
 }

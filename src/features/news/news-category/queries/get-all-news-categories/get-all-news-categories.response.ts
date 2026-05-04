@@ -1,16 +1,16 @@
-import {Expose} from "class-transformer";
-import {ApiProperty} from "@nestjs/swagger";
+import { Expose } from 'class-transformer';
+import { ApiProperty } from '@nestjs/swagger';
 
-export class GetAllNewsCategoriesResponse{
+export class GetAllNewsCategoriesResponse {
     @Expose()
     @ApiProperty()
-    id!: number
-
-    @Expose()
-    @ApiProperty()
-    title!: string
+    id!: number;
 
     @Expose()
     @ApiProperty()
-    created!: string
+    title!: string;
+
+    @Expose()
+    @ApiProperty()
+    createdAt!: string;
 }

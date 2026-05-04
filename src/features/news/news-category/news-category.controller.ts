@@ -1,32 +1,56 @@
-import {GetAllNewsCategoriesResponse} from "./queries/get-all-news-categories/get-all-news-categories.response";
-import {Body, Controller, Query, Get, Post} from "@nestjs/common";
-import {CommandBus, QueryBus} from "@nestjs/cqrs";
-import {ApiOkResponse} from "@nestjs/swagger";
-import {GetAllNewsCategoriesFilters} from "./queries/get-all-news-categories/get-all-news-categories.filters";
-import {GetAllNewsCategoriesQuery} from "./queries/get-all-news-categories/get-all-news-categories.query";
-import {CreateNewsCategoryResponse} from "./commands/create-news-category/create-news-category.response";
-import {CreateNewsCategoryCommand} from "./commands/create-news-category/create-news-category.command";
-import {CreateNewsCategoryRequest} from "./commands/create-news-category/create-news-category.request";
+import {Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query,} from '@nestjs/common';
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 
+import { CreateNewsCategoryRequest } from './commands/create-news-category/create-news-category.request';
+import { CreateNewsCategoryResponse } from './commands/create-news-category/create-news-category.response';
+
+import { UpdateNewsCategoryRequest } from './commands/update-news-category/update-news-category.request';
+import { DeleteNewsCategoryCommand } from './commands/delete-news-category/delete-news-category.command';
+
+import { GetAllNewsCategoriesFilters } from './queries/get-all-news-categories/get-all-news-categories.filters';
+import { GetAllNewsCategoriesQuery } from './queries/get-all-news-categories/get-all-news-categories.query';
+import { GetAllNewsCategoriesResponse } from './queries/get-all-news-categories/get-all-news-categories.response';
+import {GetOneNewsCategoryResponse} from "./queries/get-one-news-categories/get-one-newsCategory.response";
+import {GetOneNewsCategoryQuery} from "./queries/get-one-news-categories/get-one-newsCategory.query";
+
+@ApiTags('News Category')
 @Controller('admin/news-category')
-export class NewsCategoryController{
+export class NewsCategoryController {
     constructor(
         private readonly commandBus: CommandBus,
-        private readonly queriesBus: QueryBus,
-    ) {
-    }
+        private readonly queryBus: QueryBus,
+    ) {}
 
     @Get()
-    @ApiOkResponse({type: [GetAllNewsCategoriesResponse]})
-    async getAllNewsCategories(@Query() filters: GetAllNewsCategoriesFilters){
-        return await this.queriesBus.execute(new GetAllNewsCategoriesQuery(filters))
+    @ApiOkResponse({ type: [GetAllNewsCategoriesResponse] })
+    async getAllNewsCategories(@Query() filters: GetAllNewsCategoriesFilters): Promise<GetAllNewsCategoriesResponse[]> {
+        return this.queryBus.execute(new GetAllNewsCategoriesQuery(filters));
+    }
+
+    @Get(':id')
+    @ApiOkResponse({type: GetOneNewsCategoryResponse})
+    async getonenewsCategory(@Param('id', ParseIntPipe) id: number): Promise<GetOneNewsCategoryResponse>{
+        return this.queryBus.execute(new GetOneNewsCategoryQuery(id))
     }
 
     @Post()
-    @ApiOkResponse({type: CreateNewsCategoryResponse})
-    async createNewsCategory(@Body() req: CreateNewsCategoryRequest){
-        const cmd = new CreateNewsCategoryCommand();
-        cmd.title = req.title;
+    @ApiCreatedResponse({ type: CreateNewsCategoryResponse })
+    async createNewsCategory(@Body() req: CreateNewsCategoryRequest): Promise<CreateNewsCategoryResponse> {
+        return this.commandBus.execute(req.toCommand());
+    }
+
+    @Patch(':id')
+    async updateNewsCategory(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() req: UpdateNewsCategoryRequest): Promise<void> {
+        return this.commandBus.execute(req.toCommand(id));
+    }
+
+    @Delete(':id')
+    async deleteNewsCategory(@Param('id', ParseIntPipe) id: number) {
+        const cmd = new DeleteNewsCategoryCommand();
+        cmd.id = id;
         return await this.commandBus.execute(cmd);
     }
 }

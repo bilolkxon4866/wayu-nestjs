@@ -1,13 +1,16 @@
-import {ExecutionContextHost} from "@nestjs/core/internal";
-import {Expose} from "class-transformer";
-import {ApiProperty} from "@nestjs/swagger";
+import { Expose } from 'class-transformer';
+import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateNewsCategoryResponse{
+export class CreateNewsCategoryResponse {
     @Expose()
     @ApiProperty()
-    id!: number
+    id!: number;
 
     @Expose()
     @ApiProperty()
-    title!: string
+    title!: string;
+
+    @Expose()
+    @ApiProperty()
+    createdAt!: string;
 }

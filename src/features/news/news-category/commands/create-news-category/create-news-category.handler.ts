@@ -1,22 +1,22 @@
-import {CommandHandler, ICommandHandler} from "@nestjs/cqrs";
-import {CreateNewsCategoryCommand} from "./create-news-category.command";
-import {NewsCategoriesEntity} from "../../newsCategories.entity";
-import {ILike} from "typeorm";
-import {BadRequestException} from "@nestjs/common";
-import {plainToInstance} from "class-transformer";
-import {CreateNewsCategoryResponse} from "./create-news-category.response";
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
+import { BadRequestException } from '@nestjs/common';
+import { ILike } from 'typeorm';
+import { plainToInstance } from 'class-transformer';
+import { CreateNewsCategoryCommand } from './create-news-category.command';
+import { CreateNewsCategoryResponse } from './create-news-category.response';
+import { NewsCategoriesEntity } from '../../newsCategories.entity';
 
 @CommandHandler(CreateNewsCategoryCommand)
-export class CreateNewsCategoryHandler implements ICommandHandler<CreateNewsCategoryCommand>{
+export class CreateNewsCategoryHandler implements ICommandHandler<CreateNewsCategoryCommand> {
+    async execute(cmd: CreateNewsCategoryCommand): Promise<CreateNewsCategoryResponse> {
+        const alreadyExists = await NewsCategoriesEntity.existsBy({ title: ILike(cmd.title) });
+        if (alreadyExists) {
+            throw new BadRequestException('Bunday nomli kategoriya allaqachon mavjud');
+        }
 
-    async execute(command: CreateNewsCategoryCommand): Promise<CreateNewsCategoryResponse> {
-        const alreadyExists = await NewsCategoriesEntity.existsBy({title: ILike(command.title)})
-        if(alreadyExists)
-            throw new BadRequestException("title is already taken")
+        const category = NewsCategoriesEntity.create({ title: cmd.title } as NewsCategoriesEntity);
+        await NewsCategoriesEntity.save(category);
 
-        const newNewsCategory = NewsCategoriesEntity.create({title: command.title} as  NewsCategoriesEntity)
-        await NewsCategoriesEntity.save(newNewsCategory)
-
-        return plainToInstance(CreateNewsCategoryResponse, newNewsCategory, {excludeExtraneousValues: true})
+        return plainToInstance(CreateNewsCategoryResponse, category, { excludeExtraneousValues: true });
     }
 }
