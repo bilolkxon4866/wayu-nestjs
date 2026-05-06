@@ -12,7 +12,7 @@ import { GetOneVacanciesQuery } from './queries/get-one-vacancies/get-one-vacanc
 import { GetOneVacanciesResponse } from './queries/get-one-vacancies/get-one-vacancies.response';
 
 @ApiTags('Vacancies')
-@Controller('admin/vacancies')
+@Controller('login/vacancies')
 export class VacanciesController {
     constructor(
         private readonly commandBus: CommandBus,

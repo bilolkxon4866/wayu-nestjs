@@ -22,7 +22,7 @@ import { GetQuestionByIdQuery } from './queries/get-question-by-id/get-question-
 import { GetQuestionByIdResponse } from './queries/get-question-by-id/get-question-by-id.response';
 
 @ApiTags('Questions')
-@Controller('admin/questions')
+@Controller('login/questions')
 export class QuestionsController {
     constructor(
         private readonly commandBus: CommandBus,

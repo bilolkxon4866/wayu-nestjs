@@ -28,4 +28,6 @@ describe('NewsCategoryControllerAdmin (e2e)',  () => {
                 .expect(201)
         },
     );
+
+
 });

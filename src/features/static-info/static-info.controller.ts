@@ -7,7 +7,7 @@ import { GetStaticInfoQuery } from './queries/get-static-info/get-static-info.qu
 import { GetStaticInfoResponse } from './queries/get-static-info/get-static-info.response';
 
 @ApiTags('Static Info')
-@Controller('admin/static-info')
+@Controller('login/static-info')
 export class StaticInfoController {
     constructor(
         private readonly commandBus: CommandBus,

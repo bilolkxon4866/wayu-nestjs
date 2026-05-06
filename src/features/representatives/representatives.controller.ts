@@ -18,7 +18,7 @@ import {UpdateRepresentativesRequest} from "./commands/update-representatives/up
 import {DeleteRepresentativesCommand} from "./commands/delete-representatives/delete-representatives.command";
 
 @ApiTags('Representatives')
-@Controller('admin/representatives')
+@Controller('login/representatives')
 export class RepresentativesController {
     constructor(
         private readonly commandBus: CommandBus,

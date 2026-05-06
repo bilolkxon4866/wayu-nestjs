@@ -25,7 +25,7 @@ import { GetTagByIdQuery } from './queries/get-tag-by-id/get-tag-by-id.query';
 import { GetTagByIdResponse } from './queries/get-tag-by-id/get-tag-by-id.response';
 
 @ApiTags('Tags')
-@Controller('admin/tags')
+@Controller('login/tags')
 export class TagsController {
     constructor(
         private readonly commandBus: CommandBus,

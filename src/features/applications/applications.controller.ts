@@ -28,7 +28,7 @@
 import {Controller} from "@nestjs/common";
 
 // @ApiTags('Applications')
-@Controller('admin/applications')
+@Controller('login/applications')
 export class ApplicationsController {
 //     constructor(
 //         private readonly commandBus: CommandBus,

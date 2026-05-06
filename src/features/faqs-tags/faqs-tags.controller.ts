@@ -7,7 +7,7 @@ import { CreateFaqsTagResponse } from './commands/create-faqs-tag/create-faqs-ta
 import { DeleteFaqsTagCommand } from './commands/delete-faqs-tag/delete-faqs-tag.command';
 
 @ApiTags('Faqs Tags')
-@Controller('admin/faqs-tags')
+@Controller('login/faqs-tags')
 export class FaqsTagsController {
     constructor(private readonly commandBus: CommandBus) {}
 

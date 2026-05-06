@@ -1,5 +1,5 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { BadRequestException, NotFoundException } from '@nestjs/common';
+import { BadRequestException } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { ILike } from 'typeorm';
 import { CreateAuthorCommand } from './create-author.command';
@@ -16,7 +16,7 @@ export class CreateAuthorHandler implements ICommandHandler<CreateAuthorCommand>
 
         const entity = AuthorEntity.create({
             fullName: cmd.fullName,
-        } as any);
+        } as AuthorEntity);
 
         await AuthorEntity.save(entity);
 

@@ -25,7 +25,7 @@ import { GetFaqByIdQuery } from './queries/get-faq-by-id/get-faq-by-id.query';
 import { GetFaqByIdResponse } from './queries/get-faq-by-id/get-faq-by-id.response';
 
 @ApiTags('FAQs')
-@Controller('admin/faqs')
+@Controller('login/faqs')
 export class FaqsController {
     constructor(
         private readonly commandBus: CommandBus,

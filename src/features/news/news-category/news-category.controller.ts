@@ -15,7 +15,7 @@ import {GetOneNewsCategoryResponse} from "./queries/get-one-news-categories/get-
 import {GetOneNewsCategoryQuery} from "./queries/get-one-news-categories/get-one-newsCategory.query";
 
 @ApiTags('News Category')
-@Controller('admin/news-category')
+@Controller('login/news-category')
 export class NewsCategoryController {
     constructor(
         private readonly commandBus: CommandBus,

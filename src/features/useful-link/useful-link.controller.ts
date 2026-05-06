@@ -12,7 +12,7 @@ import { GetOneUsefulLinkQuery } from './queries/get-one-useful-link/get-one-use
 import { GetOneUsefulLinkResponse } from './queries/get-one-useful-link/get-one-useful-link.response';
 
 @ApiTags('UsefulLink')
-@Controller('admin/useful-links')
+@Controller('login/useful-links')
 export class UsefulLinkController {
     constructor(
         private readonly commandBus: CommandBus,

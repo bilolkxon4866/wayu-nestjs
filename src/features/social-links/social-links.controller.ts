@@ -12,7 +12,7 @@ import { GetOneSocialLinksQuery } from './queries/get-one-social-links/get-one-s
 import { GetOneSocialLinksResponse } from './queries/get-one-social-links/get-one-social-links.response';
 
 @ApiTags('SocialLinks')
-@Controller('admin/social-links')
+@Controller('login/social-links')
 export class SocialLinksController {
     constructor(
         private readonly commandBus: CommandBus,

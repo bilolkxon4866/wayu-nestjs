@@ -25,7 +25,7 @@ import { GetLanguageByIdQuery } from './queries/get-language-by-id/get-language-
 import { GetLanguageByIdResponse } from './queries/get-language-by-id/get-language-by-id.response';
 
 @ApiTags('Languages')
-@Controller('admin/languages')
+@Controller('login/languages')
 export class LanguagesController {
     constructor(
         private readonly commandBus: CommandBus,

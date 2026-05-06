@@ -12,7 +12,7 @@ import { UpdateBookCategoryRequest } from './commands/update-book-category/updat
 import { DeleteBookCategoryCommand } from './commands/delete-book-category/delete-book-category.command';
 
 @ApiTags('BookCategories')
-@Controller('admin/book-categories')
+@Controller('login/book-categories')
 export class BookCategoriesController {
     constructor(
         private readonly commandBus: CommandBus,

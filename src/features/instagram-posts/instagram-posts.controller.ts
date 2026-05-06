@@ -19,7 +19,7 @@ import { GetInstagramPostByIdResponse } from './queries/get-instagram-post-by-id
 import {storageOptions} from "../../configs/multer.config";
 
 @ApiTags('Instagram Posts')
-@Controller('admin/instagram-posts')
+@Controller('login/instagram-posts')
 export class InstagramPostsController {
     constructor(
         private readonly commandBus: CommandBus,

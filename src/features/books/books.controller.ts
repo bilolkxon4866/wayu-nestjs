@@ -17,7 +17,7 @@ import {CreateBooksRequest} from "./commands/create-books/create-books.request";
 import {UpdateBooksRequest} from "./commands/update-books/update-books.request";
 import {DeleteBooksCommand} from "./commands/delete-books/delete-books.command";
 @ApiTags('Books')
-@Controller('admin/books')
+@Controller('login/books')
 export class BooksController {
     constructor(
         private readonly commandBus: CommandBus,

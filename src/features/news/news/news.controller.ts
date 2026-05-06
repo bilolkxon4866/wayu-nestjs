@@ -19,7 +19,7 @@ import {GetNewsOneResponse} from "./queries/get-one-news/get-news-one.response";
 import {GetNewsOneQuery} from "./queries/get-one-news/get-news-one.query";
 
 @ApiTags('News')
-@Controller('admin/news')
+@Controller('login/news')
 export class NewsController {
     constructor(
         private readonly commandBus: CommandBus,

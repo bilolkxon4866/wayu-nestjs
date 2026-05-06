@@ -17,7 +17,7 @@ import {CreateCountriesRequest} from "./commands/create-countries/create-countri
 import {UpdateCountriesRequest} from "./commands/update-countries/update-countries.request";
 import {DeleteCountriesCommand} from "./commands/delete-countries/delete-countries.command";
 @ApiTags('Countries')
-@Controller('admin/countries')
+@Controller('login/countries')
 export class CountriesController {
     constructor(
         private readonly commandBus: CommandBus,

@@ -12,7 +12,7 @@ import { GetOneAuthorQuery } from './queries/get-one-author/get-one-author.query
 import { GetOneAuthorResponse } from './queries/get-one-author/get-one-author.response';
 
 @ApiTags('Author')
-@Controller('admin/authors')
+@Controller('login/authors')
 export class AuthorController {
     constructor(
         private readonly commandBus: CommandBus,

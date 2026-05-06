@@ -16,8 +16,19 @@ export enum VacancyType{
     PARTTIME='parttime'
 }
 
-export enum ApplicationStatus{
-    ACTIVE='active',
-    ACCEPTED='accepted',
-    REJECTED='rejected'
+export enum ApplicationStatus {
+    ACTIVE = 'active',
+    ACCEPTED = 'accepted',
+    REJECTED = 'rejected'
+
 }
+export enum Role {
+    ADMIN = 'admin',
+    SUPER_ADMIN = 'super_admin',
+
+
+}
+export enum LoginType{
+    LOGINTYPE = 'logintype'
+}
+

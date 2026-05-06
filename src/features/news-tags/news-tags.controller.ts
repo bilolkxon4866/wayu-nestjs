@@ -7,7 +7,7 @@ import { CreateNewsTagResponse } from './commands/create-news-tag/create-news-ta
 import { DeleteNewsTagCommand } from './commands/delete-news-tag/delete-news-tag.command';
 
 @ApiTags('News Tags')
-@Controller('admin/news-tags')
+@Controller('login/news-tags')
 export class NewsTagsController {
     constructor(private readonly commandBus: CommandBus) {}
 

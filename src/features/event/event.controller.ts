@@ -19,7 +19,7 @@ import {GetAllEventQuery} from "./queries/get-all-event/get-all-event.query";
 import {GetOneEventQuery} from "./queries/get-one-event/get-one-event.query";
 
 @ApiTags('Events')
-@Controller('admin/events')
+@Controller('login/events')
 export class EventController {
     constructor(
         private readonly commandBus: CommandBus,

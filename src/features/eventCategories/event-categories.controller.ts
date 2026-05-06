@@ -26,7 +26,7 @@ import { GetEventCategoryByIdQuery } from './queries/get-event-category-by-id/ge
 import { GetEventCategoryByIdResponse } from './queries/get-event-category-by-id/get-event-category-by-id.response';
 
 @ApiTags('Event Categories')
-@Controller('admin/event-categories')
+@Controller('login/event-categories')
 export class EventCategoriesController {
     constructor(
         private readonly commandBus: CommandBus,

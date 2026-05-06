@@ -23,11 +23,13 @@ import {EventCategoriesModule} from "./features/eventCategories/event-categories
 import {FaqsTagsModule} from "./features/faqs-tags/faqs-tags.module";
 import {NewsTagsModule} from "./features/news-tags/news-tags.module";
 import {QuestionsModule} from "./features/questions/questions.module";
+import {AuthModule} from "./features/authentification/auth.module";
 @Module({
   imports: [
       TypeOrmModule.forRoot(typeormConfig),
       CqrsModule.forRoot(),
       ApplicationsModule,
+      AuthModule,
       AuthorModule,
       BookCategoriesModule,
       BooksModule,
